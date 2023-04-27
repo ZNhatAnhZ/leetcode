@@ -2,7 +2,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-import static org.example.sorting.CyclicSort.cyclicSort;
+import static sorting.CyclicSort.cyclicSort;
 
 public class SortTest {
     public static boolean isSorted(int[] array) {

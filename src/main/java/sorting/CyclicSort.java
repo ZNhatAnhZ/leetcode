@@ -1,4 +1,4 @@
-package org.example.sorting;
+package sorting;
 
 public class CyclicSort {
     public static int[] cyclicSort(int[] array) {
