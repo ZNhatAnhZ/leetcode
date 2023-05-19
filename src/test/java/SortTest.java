@@ -2,6 +2,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
+import static sorting.BucketSort.bucketSort;
 import static sorting.CyclicSort.cyclicSort;
 
 public class SortTest {
@@ -23,7 +24,7 @@ public class SortTest {
             }
 
             // Sort the array using the provided sorting function
-            cyclicSort(array);
+            bucketSort(array, 6);
 
             // Test that the array is sorted correctly
             if (isSorted(array)) {
