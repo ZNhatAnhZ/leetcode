@@ -1,25 +1,41 @@
+import enumm.ColorEnum;
+
 import javax.annotation.processing.SupportedSourceVersion;
 import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
+
+
 public class Main {
-    public int numRescueBoats(int[] people, int limit) {
-        Arrays.sort(people);
-        int l=0;
-        int r=people.length;
-        int count =0;
-        while(l < r) {
-            if (people[r] + people[l] <= limit) {
-                count++;
-                r--;
-                l++;
-            } else {
-                count++;
-                r--;
+
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode listNode = new ListNode();
+        ListNode head = listNode;
+        int adder = 0;
+        while(l1 != null || l2 != null) {
+            int val1 = l1 != null ? l1.val : 0;
+            int val2 = l2 != null ? l2.val : 0;
+            int result = val1 + val2 + adder;
+            adder = adder == 0 ? 0 : adder-1;
+            if (result >= 10) {
+                adder++;
+                result -= 10;
             }
+            listNode.next = new ListNode(result);
+            listNode = listNode.next;
+            l1 = l1 != null ? l1.next : l1;
+            l2 = l2 != null ? l2.next : l2;
         }
-        return count;
+        return head.next;
     }
 
     public static void main(String[] args) {
@@ -29,13 +45,7 @@ public class Main {
 //        rotate(nums1, 3);
         List<Integer> a = new ArrayList<>();
         a.add(2);
-        a.add(1);
-        a.add(2);
-        a.add(6);
-        a.add(5);
-        a.add(2);
-        a.add(9);
-        a.add(10);
+        ColorEnum color = ColorEnum.RED;
         Collections.sort(a);
 //        System.out.println(Arrays.stream(nums1).boxed().toList());
         System.out.println(a);
